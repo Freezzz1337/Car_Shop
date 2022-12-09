@@ -1,0 +1,33 @@
+.blockForIconSizeSpeedometer{
+    margin-top: 5px;
+    width: 17px;
+    height: 16px;
+}
+.blockForIconSizeDollar{
+    margin-top: 4px;
+    width: 18px;
+    height: 17px;
+}
+.blockForIconSizeFuel{
+    margin-top: 7px;
+    width: 16px;
+    height: 15px;
+}
+
+@media screen and (max-width: 381px){
+    .blockForIconSizeSpeedometer{
+        margin-bottom: 5px;
+        width: 13px;
+        height: 12px;
+    }
+    .blockForIconSizeDollar{
+        margin-bottom: 5px;
+        width: 14px;
+        height: 13px;
+    }
+    .blockForIconSizeFuel{
+        margin-top: 1px;
+        width: 12px;
+        height: 11px;
+    }
+}

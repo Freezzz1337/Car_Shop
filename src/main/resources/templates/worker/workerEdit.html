@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Редагування працівника</title>
+</head>
+<body>
+<header th:insert="commonBlocks/header :: header"></header>
+
+
+<div class="container mt-5 mb-5">
+  <h1 class="fontForHeader">Форма редагування працівника:</h1>
+  <hr class="divider">
+  <div th:each="element : ${worker}">
+    <form method="post" enctype="multipart/form-data">
+      <h5>Назва:</h5>
+      <input type="text" th:value="${element.name}" name="name" placeholder="Назва" class="form-control"><br>
+      <h5>Логін:</h5>
+      <input type="text" th:value="${element.login}" name="login" placeholder="Назва" class="form-control"><br>
+      <h5>Посада:</h5>
+      <input type="number" th:value="${element.position.getId()}" name="position" placeholder="Назва" class="form-control"><br>
+      <button type="submit" class="btn btn-success">Редагувати</button>
+    </form>
+  </div>
+</div>
+
+
+<footer class="fixed-bottom" th:insert="commonBlocks/footer :: footer"></footer>
+</body>
+</html>

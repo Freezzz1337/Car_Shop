@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Список автомобілів</title>
+</head>
+<body>
+<header th:insert="commonBlocks/header :: header"></header>
+
+
+<div class="container">
+    <h1>Список Автомобілів:</h1>
+
+    <table class="table">
+        <thread>
+            <th scope="col">Id</th>
+            <th scope="col">Назва</th>
+            <th scope="col">Колір</th>
+            <th scope="col">Паливо</th>
+            <th scope="col">Комплектація</th>
+            <th scope="col">Ціна</th>
+            <th scope="col">Пробіг</th>
+            <th scope="col">Двигун</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Редагувати</th>
+            <th scope="col">Видалити</th>
+        </thread>
+        <tbody th:each="element : ${car}">
+        <th scope="row"><p th:text="${element.id}"></p></th>
+        <td><p th:text="${element.name}"></p></td>
+        <td><p th:text="${element.color}"></p></td>
+        <td><p th:text="${element.fuel}"></p></td>
+        <td><p th:text="${element.equipment}"></p></td>
+        <td><p th:text="${element.price}"></p></td>
+        <td><p th:text="${element.mileage}"></p></td>
+        <td><p th:text="${element.engine}"></p></td>
+        <td><p th:text="${element.dateOfManufacture}"></p></td>
+        <td><a class="btn btn-primary" th:href="'/management/car/' + ${element.id} + '/edit'"
+               align="center">Редагувати</a>
+        </td>
+        <td>
+            <form th:action="'/management/car/' + ${element.id} + '/remove'" method="post">
+                <button class="btn btn-primary" type="submit">Видалити</button>
+            </form>
+        </td>
+
+        </tbody>
+
+    </table>
+    <a class="btn btn-primary col-12" methods="post" href="/management/car/add">Додати нове авто</a>
+</div>
+
+
+<footer class="fixed-bottom" th:insert="commonBlocks/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <title>Підтвердження покупки</title>
+</head>
+<body>
+<header th:insert="commonBlocks/header :: header"></header>
+
+<div class="container">
+    <h1>Підтвердження покупки:</h1>
+
+    <form action="/management/addSales" method="post" enctype="multipart/form-data">
+        <h5>Id Авто:</h5>
+        <input type="number" name="auto" placeholder="Id Авто" class="form-control"><br>
+        <h5>Id Працівника:</h5>
+        <input type="number" name="worker" placeholder="Id Працівника" class="form-control"><br>
+        <h5>Ціна:</h5>
+        <input type="text" name="price" placeholder="Ціна" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Додати в базу</button>
+    </form>
+</div>
+
+<footer class="fixed-bottom" th:insert="commonBlocks/footer :: footer"></footer>
+</body>
+</html>

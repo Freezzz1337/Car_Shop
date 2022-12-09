@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<link href="/css/forIncreasedSelection.css" rel="stylesheet" text="text/css">
+<link href="/css/forFontForHome.css" rel="stylesheet" text="text/css">
+<link href="/css/forImage.css" rel="stylesheet" text="text/css">
+<link href="/css/forHref.css" rel="stylesheet" text="text/css">
+<link href="/css/forIcon/forIconInHomePage.css" rel="stylesheet" text="text/css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Головна сторінка</title>
+</head>
+<body>
+<header th:insert="commonBlocks/header :: header"></header>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+            <div class="col col-sm-12 col-md-6 col-xl-4" th:each="element : ${car}">
+                <a class="forHref" th:href="'/carDetails/' + ${element.id}">
+                    <div class="card shadow-sm blockSelection">
+                        <img class="img-responsive"
+                             th:src="${'data:image/png;base64,' + @base64Encoder.encodeToString(element.picture)}">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="blockFontForHome" th:text="${element.name}" align="center"></p>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <div class="btn-group">
+                                        <div>
+                                            <img class="blockForIconSizeFuel" src="/icon/fuel.png">
+                                        </div>
+                                        &nbsp;
+                                        <div>
+                                            <p class="blockFontForHome" th:text="${element.fuel}"></p>
+                                        </div>&nbsp;
+                                    </div>
+                                </div>
+
+
+                                <div class="col-4" align="center">
+                                    <div class="btn-group">
+                                        <div>
+                                            <img class="blockForIconSizeSpeedometer" src="/icon/speedometer.png">
+                                        </div>
+                                        &nbsp;
+                                        <div>
+                                            <p class="blockFontForHome" th:text="${element.mileage}"></p>
+                                        </div>&nbsp;
+
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="btn-group">
+                                        <div>
+                                            <img class="blockForIconSizeDollar" src="/icon/dollar.png">
+                                        </div>
+
+                                        <div>
+                                            <p class="blockFontForHome" th:text="${element.price}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer th:insert="commonBlocks/footer :: footer"></footer>
+</body>
+</html>

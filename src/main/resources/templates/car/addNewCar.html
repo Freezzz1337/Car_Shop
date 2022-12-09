@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Додавання нового автомобіля</title>
+</head>
+<body>
+<header th:insert="commonBlocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1 class="fontForHeader">Додавання новго авто:</h1>
+    <hr class="divider">
+    <form action="/management/car/add" method="post" enctype="multipart/form-data">
+        <h5>Назва:</h5>
+        <input type="text" name="name" placeholder="Назва" class="form-control"><br>
+        <h5>Id постачальника:</h5>
+        <input type="number" name="supplier" placeholder="Id постачальника" class="form-control"><br>
+        <h5>Колір машини:</h5>
+        <input type="text" name="color" placeholder="Колір машини" class="form-control"><br>
+        <h5>Пробіг:</h5>
+        <input type="text" name="mileage" placeholder="Пробіг" class="form-control"><br>
+        <h5>Паливо:</h5>
+        <input type="text" name="fuel" placeholder="Паливо" class="form-control"><br>
+        <h5>Об'єм двигуна:</h5>
+        <input type="text" name="engine" placeholder="Об'єм двигуна" class="form-control"><br>
+        <h5>Ціна:</h5>
+        <input type="text" name="price" placeholder="Ціна" class="form-control"><br>
+        <h5>Комплектація:</h5>
+        <input type="text" name="equipment" placeholder="Комплектація" class="form-control"><br>
+        <h5>Дата:</h5>
+        <input type="date" name="dateOfManufacture" placeholder="Дата" class="form-control"><br>
+        <h5>Фото:</h5>
+        <input type="file" name="picture" placeholder="Фото" class="form-control"><br>
+        <h5>Опис:</h5>
+        <textarea type="text" name="description" placeholder="Опис" class="form-control"></textarea><br>
+        <button type="submit" class="btn btn-success">Додати в базу</button>
+    </form>
+</div>
+
+
+<footer th:insert="commonBlocks/footer :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+<link href="/css/forCarDetails/forFont.css" rel="stylesheet" text="text/css">
+<link href="/css/forIcon/forIconInHomePage.css" rel="stylesheet" text="text/css">
+<link href="/css/forCarDetails/forPicture.css" rel="stylesheet" text="text/css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Деталі обраного авто</title>
+</head>
+<body>
+
+<header th:insert="commonBlocks/header :: header"></header>
+
+<div class="container" th:each="element : ${car}">
+
+    <div class="row">
+
+        <div class="col-12 col-lg-6">
+
+            <div class="row">
+                <div class="col">
+                    <img class="w-100 open"
+                         th:src="${'data:image/png;base64,' + @base64Encoder.encodeToString(element.picture)}">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-lg-6">
+
+            <div class="row">
+
+                <div class="col-12" align="center">
+                    <hr class="divider">
+                    <p th:text="${element.name}"></p>
+                    <hr class="divider">
+                </div>
+
+
+                <div class="col-4">
+                    Пробіг(тис.км):
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.mileage}"></p>
+                </div>
+
+
+                <div class="col-4">
+                    Двигун:
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.engine}"></p>
+                </div>
+
+                <div class="col-4">
+                    Ціна($):
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.price}"></p>
+                </div>
+
+
+                <div class="col-4">
+                    Колір:
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.color}"></p>
+                </div>
+
+                <div class="col-4">
+                    Паливо:
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.fuel}"></p>
+                </div>
+
+
+                <div class="col-4">
+                    Комплектація:
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.equipment}"></p>
+                </div>
+
+                <div class="col-4">
+                    Дата:
+                </div>
+                <div class="col-8">
+                    <p th:text="${element.dateOfManufacture}"></p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    Опис:
+                </div>
+                <div class="col-12">
+                    <p th:text="${element.description}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:insert="commonBlocks/footer :: footer"></footer>
+</body>
+</html>

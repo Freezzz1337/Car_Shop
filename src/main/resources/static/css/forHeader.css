@@ -1,0 +1,17 @@
+
+@media screen and (max-width: 767px) {
+    .forHeader {
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .forHeader {
+        margin-right: 56px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .forHeader {
+        margin-right: 56px;
+    }
+}
